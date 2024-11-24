@@ -1,0 +1,11 @@
+framework module OitiCommons {
+  umbrella header "OitiCommons.h"
+  export *
+
+  module * { export * }
+}
+
+module OitiCommons.Swift {
+  header "OitiCommons-Swift.h"
+  requires objc
+}

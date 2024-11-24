@@ -1,0 +1,74 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
+// swift-module-flags: -target arm64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name OitiLocal
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import CoreData
+import Foundation
+@_exported import OitiLocal
+import Security
+import Swift
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public enum StorageError : Swift.Error {
+  case cannotRead
+  case cannotSave
+  case notFound
+  case duplicated
+  case cannotUpdate
+  case cannotParse
+  case cannotDelete
+  public static func == (a: OitiLocal.StorageError, b: OitiLocal.StorageError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public protocol LocalStoragable {
+  func create<T>() -> T where T : CoreData.NSManagedObject
+  func read<T>() throws -> [T] where T : CoreData.NSManagedObject
+  func saveObject<T>(_ type: T.Type, updateHandler: (T) -> Swift.Void) throws where T : CoreData.NSManagedObject
+  func save() throws
+  func delete<T>(_ object: T) where T : CoreData.NSManagedObject
+}
+final public class LocalStorage : OitiLocal.LocalStoragable {
+  public init(containerName: Swift.String)
+  final public func create<T>() -> T where T : CoreData.NSManagedObject
+  final public func read<T>() throws -> [T] where T : CoreData.NSManagedObject
+  final public func saveObject<T>(_ type: T.Type, updateHandler: (T) -> Swift.Void) throws where T : CoreData.NSManagedObject
+  final public func save() throws
+  final public func delete<T>(_ object: T) where T : CoreData.NSManagedObject
+  @objc deinit
+}
+public protocol SecureStoragable {
+  func read() throws -> (data: Foundation.Data, options: Swift.String)
+  func save(_ value: Foundation.Data, options: Swift.String) throws
+  func update(_ value: Foundation.Data, options: Swift.String) throws
+  func delete() throws
+}
+final public class SecureStorage : OitiLocal.SecureStoragable {
+  public init(identifier: Swift.String)
+  final public func read() throws -> (data: Foundation.Data, options: Swift.String)
+  final public func save(_ value: Foundation.Data, options: Swift.String) throws
+  final public func update(_ value: Foundation.Data, options: Swift.String) throws
+  final public func delete() throws
+  @objc deinit
+}
+public protocol PreferencesStoragable {
+  func readData() throws -> Foundation.Data
+  func read<T>() throws -> T where T : Swift.Decodable
+  func saveData(_ data: Foundation.Data)
+  func save<T>(_ object: T) throws where T : Swift.Encodable
+  func delete()
+}
+final public class PreferencesStorage : OitiLocal.PreferencesStoragable {
+  public init(key: Swift.String, userDefaults: Foundation.UserDefaults = .standard, decoder: Foundation.JSONDecoder = .init(), encoder: Foundation.JSONEncoder = .init())
+  final public func readData() throws -> Foundation.Data
+  final public func read<T>() throws -> T where T : Swift.Decodable
+  final public func saveData(_ data: Foundation.Data)
+  final public func save<T>(_ object: T) throws where T : Swift.Encodable
+  final public func delete()
+  @objc deinit
+}
+extension OitiLocal.StorageError : Swift.Equatable {}
+extension OitiLocal.StorageError : Swift.Hashable {}

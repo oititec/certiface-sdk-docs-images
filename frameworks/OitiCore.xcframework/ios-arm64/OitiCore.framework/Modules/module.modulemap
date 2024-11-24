@@ -1,0 +1,11 @@
+framework module OitiCore {
+  umbrella header "OitiCore.h"
+  export *
+
+  module * { export * }
+}
+
+module OitiCore.Swift {
+  header "OitiCore-Swift.h"
+  requires objc
+}

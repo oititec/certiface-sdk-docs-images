@@ -1,0 +1,11 @@
+framework module OitiRemote {
+  umbrella header "OitiRemote.h"
+  export *
+
+  module * { export * }
+}
+
+module OitiRemote.Swift {
+  header "OitiRemote-Swift.h"
+  requires objc
+}

@@ -1,0 +1,11 @@
+framework module OitiDesignSystem {
+  umbrella header "OitiDesignSystem.h"
+  export *
+
+  module * { export * }
+}
+
+module OitiDesignSystem.Swift {
+  header "OitiDesignSystem-Swift.h"
+  requires objc
+}

@@ -1,0 +1,148 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
+// swift-module-flags: -target arm64-apple-ios15.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name OitiMultimedia
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import AVFoundation
+import DeveloperToolsSupport
+import Foundation
+import OitiDesignSystem
+@_exported import OitiMultimedia
+import Swift
+import SwiftUI
+import UIKit
+import UIKit.UIViewController
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public struct CameraMask {
+  public let origin: CoreFoundation.CGPoint
+  public let size: CoreFoundation.CGSize
+  public let cornerRadius: CoreFoundation.CGFloat
+  public let color: UIKit.UIColor
+  public init(origin: CoreFoundation.CGPoint, size: CoreFoundation.CGSize, cornerRadius: CoreFoundation.CGFloat, color: UIKit.UIColor)
+}
+public protocol CheckCameraPermissionTrackerDelegate : AnyObject {
+  func trackViewDidAppear()
+  func trackGoBackAction()
+  func trackCheckPermissionAction()
+  func trackGoToSettingsAction()
+  func trackCloseAction()
+}
+@_Concurrency.MainActor(unsafe) public struct CameraPermissionView : SwiftUI.View {
+  @_Concurrency.MainActor(unsafe) public init(properties: OitiMultimedia.CameraPermissionViewProperties = .init(), delegate: (any OitiMultimedia.CheckCameraPermissionDelegate)? = nil, trackerDelegate: (any OitiMultimedia.CheckCameraPermissionTrackerDelegate)? = nil)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s14OitiMultimedia20CameraPermissionViewV4bodyQrvp", 0) __
+}
+
+public enum CameraPosition {
+  case back, front
+  public static func == (a: OitiMultimedia.CameraPosition, b: OitiMultimedia.CameraPosition) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct CameraPreview : SwiftUI.UIViewRepresentable {
+  public init(manager: any OitiMultimedia.CameraManagable, mask: OitiMultimedia.CameraMask? = nil)
+  @_Concurrency.MainActor(unsafe) public func makeUIView(context: OitiMultimedia.CameraPreview.Context) -> OitiMultimedia.CameraPreviewView
+  @_Concurrency.MainActor(unsafe) public func updateUIView(_ uiView: OitiMultimedia.CameraPreviewView, context: OitiMultimedia.CameraPreview.Context)
+  public typealias Body = Swift.Never
+  public typealias Coordinator = Swift.Void
+  public typealias UIViewType = OitiMultimedia.CameraPreviewView
+}
+public struct CameraPermissionViewProperties {
+  public init()
+}
+public protocol CheckCameraPermissionDelegate : AnyObject {
+  func proceed()
+  func close()
+}
+@_hasMissingDesignatedInitializers final public class CameraPermissionCustomizationBuilder {
+  public static func builder() -> OitiMultimedia.CameraPermissionCustomizationBuilder
+  final public func build() -> OitiMultimedia.CameraPermissionViewProperties
+  final public func setBackButtonIcon(_ icon: UIKit.UIImage) -> Self
+  final public func setBackButtonColor(forContent contentColor: UIKit.UIColor?, background backgroundColor: UIKit.UIColor? = nil, border borderColor: UIKit.UIColor? = nil) -> Self
+  final public func setCameraImage(_ image: UIKit.UIImage?, color: UIKit.UIColor? = nil) -> Self
+  final public func setTitle(text: Swift.String? = nil, color: UIKit.UIColor? = nil, font: UIKit.UIFont? = nil) -> Self
+  final public func setCaption(text: Swift.String? = nil, color: UIKit.UIColor? = nil, font: UIKit.UIFont? = nil) -> Self
+  final public func setCheckPermissionButtonText(_ text: Swift.String?, font: UIKit.UIFont? = nil) -> Self
+  final public func setCheckPermissionButtonColor(forContent contentColor: UIKit.UIColor?, background backgroundColor: UIKit.UIColor? = nil, border borderColor: UIKit.UIColor? = nil) -> Self
+  final public func setBackgroundColor(_ color: UIKit.UIColor) -> Self
+  final public func setBottomSheetBackgroundColor(_ color: UIKit.UIColor) -> Self
+  final public func setBottomSheetCornerRadius(_ radius: CoreFoundation.CGFloat) -> Self
+  final public func setBottomSheetTitle(text: Swift.String? = nil, color: UIKit.UIColor? = nil, font: UIKit.UIFont? = nil) -> Self
+  final public func setBottomSheetCaption(text: Swift.String? = nil, color: UIKit.UIColor? = nil, font: UIKit.UIFont? = nil) -> Self
+  final public func setOpenSettingsButtonText(_ text: Swift.String?, font: UIKit.UIFont? = nil) -> Self
+  final public func setOpenSettingsButtonColor(forContent contentColor: UIKit.UIColor?, background backgroundColor: UIKit.UIColor? = nil, border borderColor: UIKit.UIColor? = nil) -> Self
+  final public func setCloseButtonText(_ text: Swift.String?, font: UIKit.UIFont? = nil) -> Self
+  final public func setCloseButtonColor(forContent contentColor: UIKit.UIColor?, background backgroundColor: UIKit.UIColor? = nil, border borderColor: UIKit.UIColor? = nil) -> Self
+  @objc deinit
+}
+public protocol CaptureDelegate {
+  func capturedPhoto(_ photo: UIKit.UIImage)
+  func captureError(_ error: OitiMultimedia.CameraError)
+  func qrCode(metadata: Swift.String)
+}
+extension OitiMultimedia.CaptureDelegate {
+  public func capturedPhoto(_ photo: UIKit.UIImage)
+  public func captureError(_ error: OitiMultimedia.CameraError)
+  public func qrCode(metadata: Swift.String)
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class CameraPreviewView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public class var layerClass: Swift.AnyClass {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) public var previewLayer: AVFoundation.AVCaptureVideoPreviewLayer {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public init(manager: any OitiMultimedia.CameraManagable, mask: OitiMultimedia.CameraMask? = nil)
+  @objc deinit
+}
+public enum ImageCaptureMethod {
+  case normal
+  case resize(CoreFoundation.CGSize)
+  case crop(CoreFoundation.CGRect)
+}
+public enum CameraError : Swift.Error {
+  case unavailableDefaultDevice
+  case cannotAddDeviceInput
+  case cannotAddPhotoOutput
+  case cannotCapturePhoto
+  case qrCodeNotSupported
+  public static func == (a: OitiMultimedia.CameraError, b: OitiMultimedia.CameraError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public protocol CameraManagable {
+  func createSession() -> AVFoundation.AVCaptureSession?
+  func startSession()
+  func stopSession()
+  func capturePhoto(method: OitiMultimedia.ImageCaptureMethod) throws
+  func startQrCodeCapture() throws
+  func stopQrCodeCapture()
+}
+@objc @_hasMissingDesignatedInitializers final public class CameraManager : ObjectiveC.NSObject, OitiMultimedia.CameraManagable {
+  final public var delegate: (any OitiMultimedia.CaptureDelegate)?
+  convenience public init(position: OitiMultimedia.CameraPosition, delegate: (any OitiMultimedia.CaptureDelegate)? = nil)
+  final public func createSession() -> AVFoundation.AVCaptureSession?
+  final public func startSession()
+  final public func stopSession()
+  final public func capturePhoto(method: OitiMultimedia.ImageCaptureMethod) throws
+  final public func startQrCodeCapture() throws
+  final public func stopQrCodeCapture()
+  @objc deinit
+}
+extension OitiMultimedia.CameraManager : AVFoundation.AVCapturePhotoCaptureDelegate {
+  @objc final public func photoOutput(_ output: AVFoundation.AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVFoundation.AVCapturePhoto, error: (any Swift.Error)?)
+}
+extension OitiMultimedia.CameraManager : AVFoundation.AVCaptureMetadataOutputObjectsDelegate {
+  @objc final public func metadataOutput(_ output: AVFoundation.AVCaptureMetadataOutput, didOutput metadataObjects: [AVFoundation.AVMetadataObject], from connection: AVFoundation.AVCaptureConnection)
+}
+extension OitiMultimedia.CameraPosition : Swift.Equatable {}
+extension OitiMultimedia.CameraPosition : Swift.Hashable {}
+extension OitiMultimedia.CameraError : Swift.Equatable {}
+extension OitiMultimedia.CameraError : Swift.Hashable {}

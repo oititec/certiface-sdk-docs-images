@@ -1,0 +1,11 @@
+framework module OitiFacetec {
+  umbrella header "OitiFacetec.h"
+  export *
+
+  module * { export * }
+}
+
+module OitiFacetec.Swift {
+  header "OitiFacetec-Swift.h"
+  requires objc
+}

@@ -1,0 +1,228 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
+// swift-module-flags: -target arm64-apple-ios15.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name OitiFacetec
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import DeveloperToolsSupport
+import FaceTecSDK
+import Foundation
+import OitiCommons
+import OitiDesignSystem
+import OitiDeviceIntelligence
+@_exported import OitiFacetec
+import OitiMultimedia
+import OitiRemote
+import Security
+import Swift
+import SwiftUI
+import UIKit.UIImage
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public struct Shadow {
+  public init(color: UIKit.UIColor, opacity: Swift.Float, radius: Swift.Float, offset: CoreFoundation.CGSize, insets: UIKit.UIEdgeInsets)
+}
+public struct FacetecSuccessModel {
+  public let ticket: Swift.String
+  public let valid: Swift.Bool
+  public let codeId: Swift.String
+  public let `protocol`: Swift.String
+  public let image: Swift.String
+}
+@_hasMissingDesignatedInitializers final public class FacetecCustomizationBuilder {
+  public static func builder() -> OitiFacetec.FacetecCustomizationBuilder
+  @discardableResult
+  final public func customizeInstructionScreen(_ builder: @escaping (_ instructionBuilder: OitiDesignSystem.InstructionCustomizationBuilder) -> OitiDesignSystem.InstructionCustomizationBuilder) -> Self
+  @discardableResult
+  final public func customizeLivenessScreen(_ builder: @escaping (_ livenessBuilder: OitiFacetec.FacetecLivenessCustomizationBuilder) -> OitiFacetec.FacetecLivenessCustomizationBuilder) -> Self
+  @discardableResult
+  final public func customizeCameraPermissionScreen(_ builder: @escaping (_ cameraPermissionBuilder: OitiMultimedia.CameraPermissionCustomizationBuilder) -> OitiMultimedia.CameraPermissionCustomizationBuilder) -> Self
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers final public class FacetecLivenessCustomizationBuilder {
+  @discardableResult
+  final public func setReadyScreenHeader(color: UIKit.UIColor? = nil, font: UIKit.UIFont? = nil) -> Self
+  @discardableResult
+  final public func setReadyScreenMessage(color: UIKit.UIColor? = nil, font: UIKit.UIFont? = nil) -> Self
+  @discardableResult
+  final public func setReadyScreenTextBackground(color: UIKit.UIColor? = nil, cornerRadius radius: Swift.Int? = nil) -> Self
+  @discardableResult
+  final public func setReadyScreenTexts(_ texts: [OitiFacetec.FacetecReadyTextKey : Swift.String]) -> Self
+  @discardableResult
+  final public func setResultScreenMessage(color: UIKit.UIColor? = nil, font: UIKit.UIFont? = nil) -> Self
+  @discardableResult
+  final public func setResultScreenUploadProgressBar(display: Swift.Bool, fillColor: UIKit.UIColor? = nil, trackColor: UIKit.UIColor? = nil) -> Self
+  @discardableResult
+  final public func setResultScreenAnimationStyle(_ style: OitiFacetec.ResultAnimationStyle, scale: Swift.Float = 1.0) -> Self
+  @discardableResult
+  final public func setResulScreenTexts(_ texts: [OitiFacetec.FacetecResultTextKey : Swift.String]) -> Self
+  @discardableResult
+  final public func setRetryScreenHeader(color: UIKit.UIColor? = nil, font: UIKit.UIFont? = nil) -> Self
+  @discardableResult
+  final public func setRetryScreenCaption(color: UIKit.UIColor? = nil, font: UIKit.UIFont? = nil) -> Self
+  @discardableResult
+  final public func setRetryScreenImageBorder(color: UIKit.UIColor? = nil, width: Swift.Int? = nil, cornerRadius radius: Swift.Int? = nil) -> Self
+  @discardableResult
+  final public func setRetryScreenTexts(_ texts: [OitiFacetec.FacetecRetryTextKey : Swift.String]) -> Self
+  @discardableResult
+  final public func setGuidanceFonts(header headerFont: UIKit.UIFont? = nil, subtext subtextFont: UIKit.UIFont? = nil) -> Self
+  @discardableResult
+  final public func setGuidanceButtonBackgroundColors(normal normalColor: UIKit.UIColor? = nil, highlight highlightColor: UIKit.UIColor? = nil, disabled disabledColor: UIKit.UIColor? = nil) -> Self
+  @discardableResult
+  final public func setGuidanceButtonTextColors(normal normalColor: UIKit.UIColor? = nil, highlight highlightColor: UIKit.UIColor? = nil, disabled disabledColor: UIKit.UIColor? = nil) -> Self
+  @discardableResult
+  final public func setGuidanceButtonFont(_ font: UIKit.UIFont?) -> Self
+  @discardableResult
+  final public func setGuidanceButtonBorder(color: UIKit.UIColor? = nil, width: Swift.Int? = nil, cornerRadius radius: Swift.Int? = nil) -> Self
+  @discardableResult
+  final public func setFrameBorder(color: UIKit.UIColor? = nil, width: Swift.Int? = nil, cornerRadius radius: Swift.Int? = nil) -> Self
+  @discardableResult
+  final public func setFrameBackgroundColor(_ color: UIKit.UIColor) -> Self
+  @discardableResult
+  final public func setFrameShadow(_ shadow: OitiFacetec.Shadow) -> Self
+  @discardableResult
+  final public func setOvalStroke(_ color: UIKit.UIColor? = nil, width: Swift.Int? = nil) -> Self
+  @discardableResult
+  final public func setOvalProgress(color1: UIKit.UIColor? = nil, color2: UIKit.UIColor? = nil, width: Swift.Int? = nil, offset: Swift.Int? = nil) -> Self
+  @discardableResult
+  final public func setOverlayBackgroundColor(_ color: UIKit.UIColor) -> Self
+  @discardableResult
+  final public func setOverlayBrandImage(_ image: UIKit.UIImage) -> Self
+  @discardableResult
+  final public func setFeedbackMessage(color: UIKit.UIColor? = nil, font: UIKit.UIFont? = nil) -> Self
+  @discardableResult
+  final public func setFeedbackBar(backgroundColor: UIKit.UIColor? = nil, cornerRadius radius: Swift.Int? = nil, shadow: OitiFacetec.Shadow? = nil) -> Self
+  @discardableResult
+  final public func setFeedbackTexts(_ texts: [OitiFacetec.FacetecFeedbackTextKey : Swift.String]) -> Self
+  @discardableResult
+  final public func setCancelButton(icon: UIKit.UIImage? = nil, location: OitiFacetec.CancelButtonLocation = .topLeft) -> Self
+  @objc deinit
+}
+public protocol CustomResultAnimationDelegate {
+  func createActivityIndicatorView() -> UIKit.UIView?
+  func createSuccessAnimationView() -> UIKit.UIView?
+}
+public enum CancelButtonLocation : Swift.Int {
+  case topLeft
+  case topRight
+  case disabled
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct ImageAnimationAppearance {
+  public init(image: UIKit.UIImage, rotationInterval: Swift.Int, checkmarkForegroundColor: UIKit.UIColor, checkmarkBackgroundColor: UIKit.UIColor)
+}
+public protocol FacetecCallback {
+  func onSuccess(_ result: OitiFacetec.FacetecSuccessModel)
+  func onError(_ error: OitiCommons.OitiError)
+  func onCancel()
+}
+public typealias Environment = OitiRemote.Environment
+@_hasMissingDesignatedInitializers final public class FacetecSolution : OitiCommons.OitiSolution {
+  final public var type: OitiCommons.ServiceType {
+    get
+  }
+  final public var vendor: OitiCommons.ServiceVendor {
+    get
+  }
+  final public var sessionTokenRequired: Swift.Bool {
+    get
+  }
+  convenience public init(credentials: OitiCommons.CredentialsModel, tenant: OitiRemote.TenantParameters, environment: OitiFacetec.Environment, callback: any OitiFacetec.FacetecCallback, customizationBuilder: OitiFacetec.FacetecCustomizationBuilder? = nil)
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func configure(with service: OitiCommons.ServiceModel, token: Swift.String) async throws
+  #endif
+  @_Concurrency.MainActor final public func start(at navigationController: UIKit.UINavigationController)
+  @objc deinit
+}
+public struct BlobAnimationAppearance {
+  public init(blobColor: UIKit.UIColor, checkmarkForegroundColor: UIKit.UIColor, checkmarkBackgroundColor: UIKit.UIColor)
+}
+public struct SpinnerAnimationAppearance {
+  public init(spinnerColor: UIKit.UIColor, checkmarkForegroundColor: UIKit.UIColor, checkmarkBackgroundColor: UIKit.UIColor)
+}
+public enum ResultAnimationStyle {
+  case blob(appearance: OitiFacetec.BlobAnimationAppearance)
+  case spinner(appearance: OitiFacetec.SpinnerAnimationAppearance)
+  case image(appearance: OitiFacetec.ImageAnimationAppearance)
+  case custom(delegate: any OitiFacetec.CustomResultAnimationDelegate)
+}
+public enum FacetecReadyTextKey : Swift.String {
+  case header1
+  case header2
+  case message1
+  case message2
+  case button
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum FacetecRetryTextKey : Swift.String {
+  case header
+  case caption
+  case yourPicture
+  case idealPicture
+  case messageSmile
+  case messageLightning
+  case messageContrast
+  case button
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum FacetecResultTextKey : Swift.String {
+  case uploadMessage
+  case successMessage
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum FacetecFeedbackTextKey : Swift.String {
+  case centerFace
+  case faceNotFound
+  case faceNotLookingStraightAhead
+  case faceNotUpright
+  case holdSteady
+  case movePhoneAway
+  case movePhoneCloser
+  case movePhoneToEyeLevel
+  case useEvenLighting
+  case frameYourFace
+  case positionFaceStraightInOval
+  case holdSteady1
+  case holdSteady2
+  case holdSteady3
+  case removeDarkGlasses
+  case neutralExpression
+  case conditionsTooBright
+  case brightenYourEnvironment
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+extension OitiFacetec.CancelButtonLocation : Swift.Equatable {}
+extension OitiFacetec.CancelButtonLocation : Swift.Hashable {}
+extension OitiFacetec.CancelButtonLocation : Swift.RawRepresentable {}
+extension OitiFacetec.FacetecReadyTextKey : Swift.Equatable {}
+extension OitiFacetec.FacetecReadyTextKey : Swift.Hashable {}
+extension OitiFacetec.FacetecReadyTextKey : Swift.RawRepresentable {}
+extension OitiFacetec.FacetecRetryTextKey : Swift.Equatable {}
+extension OitiFacetec.FacetecRetryTextKey : Swift.Hashable {}
+extension OitiFacetec.FacetecRetryTextKey : Swift.RawRepresentable {}
+extension OitiFacetec.FacetecResultTextKey : Swift.Equatable {}
+extension OitiFacetec.FacetecResultTextKey : Swift.Hashable {}
+extension OitiFacetec.FacetecResultTextKey : Swift.RawRepresentable {}
+extension OitiFacetec.FacetecFeedbackTextKey : Swift.Equatable {}
+extension OitiFacetec.FacetecFeedbackTextKey : Swift.Hashable {}
+extension OitiFacetec.FacetecFeedbackTextKey : Swift.RawRepresentable {}

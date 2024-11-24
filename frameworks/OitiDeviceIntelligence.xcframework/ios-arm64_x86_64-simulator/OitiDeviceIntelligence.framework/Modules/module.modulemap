@@ -1,0 +1,11 @@
+framework module OitiDeviceIntelligence {
+  umbrella header "OitiDeviceIntelligence.h"
+  export *
+
+  module * { export * }
+}
+
+module OitiDeviceIntelligence.Swift {
+  header "OitiDeviceIntelligence-Swift.h"
+  requires objc
+}

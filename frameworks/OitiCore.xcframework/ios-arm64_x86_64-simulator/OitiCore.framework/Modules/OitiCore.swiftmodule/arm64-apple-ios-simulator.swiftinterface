@@ -1,0 +1,156 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
+// swift-module-flags: -target arm64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name OitiCore
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Combine
+import Foundation
+import MetricKit
+@_exported import OitiCore
+import OitiDocCore
+import OitiFacetec
+import OitiLiveness2D
+import Swift
+import SwiftUI
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public protocol Liveness2DInterceptor : AnyObject {
+  func onIntercept(_ result: OitiLiveness2D.Liveness2DSuccessModel)
+}
+public struct Liveness2DProvider : OitiCore.Provider {
+  public var id: OitiCore.ProviderID {
+    get
+  }
+  public init(customization customizationBuilder: OitiLiveness2D.Liveness2DCustomizationBuilder? = nil, interceptor: (any OitiCore.Liveness2DInterceptor)? = nil)
+}
+public protocol FacetecInterceptor : AnyObject {
+  func onIntercept(_ result: OitiFacetec.FacetecSuccessModel)
+}
+public struct FacetecProvider : OitiCore.Provider {
+  public var id: OitiCore.ProviderID {
+    get
+  }
+  public init(customization customizationBuilder: OitiFacetec.FacetecCustomizationBuilder? = nil, interceptor: (any OitiCore.FacetecInterceptor)? = nil)
+}
+public struct HubManagerView : SwiftUI.View {
+  public init(launcher: OitiCore.HubManagerLauncher)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s8OitiCore14HubManagerViewV4bodyQrvp", 0) __
+}
+public struct HubManagerViewRepresentable : SwiftUI.UIViewControllerRepresentable {
+  public typealias UIViewControllerType = UIKit.UIViewController
+  @_Concurrency.MainActor(unsafe) public func makeUIViewController(context: OitiCore.HubManagerViewRepresentable.Context) -> UIKit.UIViewController
+  @_Concurrency.MainActor(unsafe) public func updateUIViewController(_ uiViewController: UIKit.UIViewController, context: OitiCore.HubManagerViewRepresentable.Context)
+  public typealias Body = Swift.Never
+  public typealias Coordinator = Swift.Void
+}
+public enum ProviderID : Swift.Int, Swift.CaseIterable {
+  case facetec
+  case liveness2d
+  case docCore
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [OitiCore.ProviderID]
+  public typealias RawValue = Swift.Int
+  public static var allCases: [OitiCore.ProviderID] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct DocCoreProvider : OitiCore.Provider {
+  public var id: OitiCore.ProviderID {
+    get
+  }
+  public init(customization customizationBuilder: OitiDocCore.DocCoreCustomizationBuilder? = nil)
+}
+public enum HubEnvironment : Swift.String, Swift.CaseIterable {
+  case hml
+  case prd
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [OitiCore.HubEnvironment]
+  public typealias RawValue = Swift.String
+  public static var allCases: [OitiCore.HubEnvironment] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers final public class HubManager : Combine.ObservableObject {
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func start(with launcher: OitiCore.HubManagerLauncher) async
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func start(at viewController: UIKit.UIViewController) async
+  #endif
+  final public func resume()
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
+}
+public protocol Provider {
+  var id: OitiCore.ProviderID { get }
+}
+final public class HubManagerBuilder {
+  public init(user: OitiCore.HubManagerUser, callback: any OitiCore.HubCallback)
+  final public func addSubOrg(_ subOrg: Swift.Int) -> Self
+  final public func addGroup(_ group: Swift.Int) -> Self
+  final public func addProvider(_ provider: any OitiCore.Provider) -> Self
+  final public func build() -> OitiCore.HubManager
+  @objc deinit
+}
+public protocol HubCallback : AnyObject {
+  func onConnect()
+  func onSuccess()
+  func onError(_ error: OitiCore.HubError)
+  func onCancel()
+}
+public enum HubError : Swift.Int, Swift.Error {
+  case unknown
+  case invalidTicket
+  case finishedTicket
+  case awaitingTicket
+  case invalidKey
+  case noCameraPermission
+  case noInternetConnection
+  case solutionNotCompleted
+  case emptyFlow
+  case flowError
+  case invalidParameters
+  case duplicatedProvider
+  public var code: Swift.Int {
+    get
+  }
+  public var message: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers final public class HubManagerLauncher {
+  convenience public init()
+  @objc deinit
+}
+public struct HubManagerUser {
+  public let ticket: Swift.String
+  public let key: Swift.String
+  public let environment: OitiCore.HubEnvironment
+  public let org: Swift.Int
+  public let branch: Swift.Int
+  public init(ticket: Swift.String, key: Swift.String, environment: OitiCore.HubEnvironment, org: Swift.Int, branch: Swift.Int)
+}
+extension OitiCore.ProviderID : Swift.Equatable {}
+extension OitiCore.ProviderID : Swift.Hashable {}
+extension OitiCore.ProviderID : Swift.RawRepresentable {}
+extension OitiCore.HubEnvironment : Swift.Equatable {}
+extension OitiCore.HubEnvironment : Swift.Hashable {}
+extension OitiCore.HubEnvironment : Swift.RawRepresentable {}
+extension OitiCore.HubError : Swift.Equatable {}
+extension OitiCore.HubError : Swift.Hashable {}
+extension OitiCore.HubError : Swift.RawRepresentable {}

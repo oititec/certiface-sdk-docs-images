@@ -1,0 +1,11 @@
+framework module OitiMultimedia {
+  umbrella header "OitiMultimedia.h"
+  export *
+
+  module * { export * }
+}
+
+module OitiMultimedia.Swift {
+  header "OitiMultimedia-Swift.h"
+  requires objc
+}

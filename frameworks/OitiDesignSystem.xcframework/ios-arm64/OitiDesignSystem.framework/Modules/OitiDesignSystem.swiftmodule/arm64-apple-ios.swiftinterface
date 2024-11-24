@@ -1,0 +1,808 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
+// swift-module-flags: -target arm64-apple-ios15.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name OitiDesignSystem
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Combine
+import CoreGraphics
+import CoreText
+import DeveloperToolsSupport
+import Foundation
+@_exported import OitiDesignSystem
+import Swift
+import SwiftUI
+import UIKit.UIImage
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public struct SearchFieldComponentModel {
+  public init(searchImage: UIKit.UIImage?, cancelImage: UIKit.UIImage?, hasButton: Swift.Bool, placeholder: Swift.String)
+  public init(searchImage: UIKit.UIImage?, cancelImage: UIKit.UIImage?, hasButton: Swift.Bool)
+}
+public enum LinkComponentStyles {
+  case standardNormal
+  case standardHightlithed
+  case onColorNormal
+  case onColorHightlithed
+  public static func == (a: OitiDesignSystem.LinkComponentStyles, b: OitiDesignSystem.LinkComponentStyles) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension OitiDesignSystem.ComponentBuilder {
+  public struct ImageView {
+    public static func create(for imageName: Swift.String, bundle: Foundation.Bundle = .main) -> OitiDesignSystem.ComponentBuilder.ImageView
+    public static func create(with image: UIKit.UIImage? = nil) -> OitiDesignSystem.ComponentBuilder.ImageView
+    public func build() -> UIKit.UIImageView
+    public func tintColor(_ color: UIKit.UIColor) -> OitiDesignSystem.ComponentBuilder.ImageView
+    public func contentMode(_ mode: UIKit.UIView.ContentMode) -> OitiDesignSystem.ComponentBuilder.ImageView
+    public func backgroundColor(_ color: UIKit.UIColor) -> OitiDesignSystem.ComponentBuilder.ImageView
+    public func cornerRadius(_ radius: CoreFoundation.CGFloat) -> OitiDesignSystem.ComponentBuilder.ImageView
+    @available(iOS 11.0, *)
+    public func cornerRadius(_ radius: CoreFoundation.CGFloat, edges: QuartzCore.CACornerMask) -> OitiDesignSystem.ComponentBuilder.ImageView
+    public func masksToBounds(_ value: Swift.Bool = true) -> OitiDesignSystem.ComponentBuilder.ImageView
+  }
+}
+public enum TransitionStyle {
+  case modal
+  case navigation
+  public static func == (a: OitiDesignSystem.TransitionStyle, b: OitiDesignSystem.TransitionStyle) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum DesignTokens {
+}
+extension UIKit.UIImage {
+  public static func fromGif(resourceName: Swift.String, bundle externalBundle: Foundation.Bundle? = nil, durationPerFrame duration: CoreFoundation.CGFloat) -> UIKit.UIImage?
+}
+public enum ComponentIcon {
+  case none
+  case has(UIKit.UIImage?)
+}
+extension UIKit.UIImage {
+  public static func rotatedImage(from cgImage: CoreGraphics.CGImage, rotatedBy degrees: Swift.Double) -> UIKit.UIImage?
+}
+extension Swift.Optional where Wrapped == Swift.String {
+  public var orEmpty: Swift.String {
+    get
+  }
+}
+extension OitiDesignSystem.DesignTokens {
+  public enum OpacityLevel {
+    public static let semiOpaque: CoreFoundation.CGFloat
+    public static let intense: CoreFoundation.CGFloat
+    public static let medium: CoreFoundation.CGFloat
+    public static let light: CoreFoundation.CGFloat
+    public static let semiTransparent: CoreFoundation.CGFloat
+  }
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class SwitchComponent : UIKit.UIView {
+  public typealias ValueChangedHandler = (_ value: Swift.Bool) -> Swift.Void
+  @_Concurrency.MainActor(unsafe) public var isDisabled: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var isSelected: Swift.Bool {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) public func setSelected(to value: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func addObserverToValueChanged(handler: @escaping OitiDesignSystem.SwitchComponent.ValueChangedHandler)
+  @objc deinit
+}
+extension OitiDesignSystem.ConstraintBuilder {
+  public func trailing(anchor uiViewAnchor: UIKit.NSLayoutXAxisAnchor, padding: CoreFoundation.CGFloat = 0.0) -> OitiDesignSystem.ConstraintBuilder
+  public func trailing(anchor uiViewAnchor: UIKit.UIView, padding: CoreFoundation.CGFloat = 0.0) -> OitiDesignSystem.ConstraintBuilder
+  public func trailing(anchor layoutGuide: UIKit.UILayoutGuide, padding: CoreFoundation.CGFloat = 0.0) -> OitiDesignSystem.ConstraintBuilder
+}
+extension OitiDesignSystem.DesignTokens {
+  public enum CornerRadius {
+    public static let none: CoreFoundation.CGFloat
+    public static let sm: CoreFoundation.CGFloat
+    public static let md: CoreFoundation.CGFloat
+    public static let lg: CoreFoundation.CGFloat
+    public static let pill: CoreFoundation.CGFloat
+  }
+}
+public class ConstraintBuilder {
+  public init(_ view: UIKit.UIView)
+  public func constraintReference(_ constraintReference: inout UIKit.NSLayoutConstraint) -> OitiDesignSystem.ConstraintBuilder
+  public func build()
+  @objc deinit
+}
+public protocol NavigationRouter {
+  associatedtype V : SwiftUI.View
+  var transitionStyle: OitiDesignSystem.TransitionStyle { get }
+  @SwiftUI.ViewBuilder func view() -> Self.V
+}
+public struct ActivityIndicatorConfiguration : OitiDesignSystem.LoadingConfigurationProtocol {
+  public let backgroundColor: UIKit.UIColor
+  public init(color: UIKit.UIColor, scaleFactor: Swift.Int, backgroundColor: UIKit.UIColor)
+  public func createLoadingView() -> UIKit.UIView
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class RadioButtonComponent : OitiDesignSystem.CheckboxComponent {
+  @_Concurrency.MainActor(unsafe) override public init(label: Swift.String, checkIcon: UIKit.UIImage?)
+  @objc deinit
+}
+extension OitiDesignSystem.ConstraintBuilder {
+  public func height(anchor uiViewAnchor: UIKit.NSLayoutDimension, multiplier: CoreFoundation.CGFloat = 1.0) -> OitiDesignSystem.ConstraintBuilder
+  public func height(anchor uiViewAnchor: UIKit.UIView, multiplier: CoreFoundation.CGFloat = 1.0) -> OitiDesignSystem.ConstraintBuilder
+  public func height(constant: CoreFoundation.CGFloat) -> OitiDesignSystem.ConstraintBuilder
+}
+public struct OitiHeaderComponentModel {
+  public init(oitiLogoImage: UIKit.UIImage?, optionsImage: UIKit.UIImage?, optionsButtonIdentifier: Swift.String)
+}
+public struct ButtonComponentModel {
+  public init(title: Swift.String? = nil, titleFont: UIKit.UIFont? = nil, type: OitiDesignSystem.ButtonComponentType = .complex, size: OitiDesignSystem.ComponentSize, icon: OitiDesignSystem.ComponentIcon, loadingIcon: UIKit.UIImage? = nil, highlightedStyle: OitiDesignSystem.ButtonComponentStyles, normalStyle: OitiDesignSystem.ButtonComponentStyles, disabledStyle: OitiDesignSystem.ButtonComponentStyles)
+}
+public struct ButtonComponentAppearance {
+  public let backgroundColor: UIKit.UIColor
+  public let borderColor: UIKit.UIColor
+  public let contentColor: UIKit.UIColor
+  public init(backgroundColor: UIKit.UIColor, borderColor: UIKit.UIColor, contentColor: UIKit.UIColor)
+}
+public enum ButtonComponentType {
+  case simple
+  case complex
+  public static func == (a: OitiDesignSystem.ButtonComponentType, b: OitiDesignSystem.ButtonComponentType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct InstructionProperties {
+  public init()
+  public func getBottomSheetColor() -> SwiftUI.Color
+}
+public struct LoadingScreen : SwiftUI.View {
+  public init(properties: OitiDesignSystem.LoadingProperties, onAppear action: (() -> Swift.Void)? = nil)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s16OitiDesignSystem13LoadingScreenV4bodyQrvp", 0) __
+}
+
+extension OitiDesignSystem.ConstraintBuilder {
+  public func centerX(anchor uiViewAnchor: UIKit.NSLayoutXAxisAnchor, padding: CoreFoundation.CGFloat = 0.0) -> OitiDesignSystem.ConstraintBuilder
+  public func centerX(anchor uiViewAnchor: UIKit.UIView, padding: CoreFoundation.CGFloat = 0.0) -> OitiDesignSystem.ConstraintBuilder
+}
+extension OitiDesignSystem.ComponentBuilder {
+  public struct TextField {
+    public static func create() -> OitiDesignSystem.ComponentBuilder.TextField
+    public func build() -> UIKit.UITextField
+    public func font(_ font: UIKit.UIFont) -> OitiDesignSystem.ComponentBuilder.TextField
+    public func textColor(_ color: UIKit.UIColor) -> OitiDesignSystem.ComponentBuilder.TextField
+    public func tintColor(_ color: UIKit.UIColor) -> OitiDesignSystem.ComponentBuilder.TextField
+    public func textAlignment(_ alignment: UIKit.NSTextAlignment) -> OitiDesignSystem.ComponentBuilder.TextField
+    public func clearButtonMode(_ mode: UIKit.UITextField.ViewMode) -> OitiDesignSystem.ComponentBuilder.TextField
+    public func showSecureTextEntry(_ value: Swift.Bool) -> OitiDesignSystem.ComponentBuilder.TextField
+  }
+}
+@objc @_Concurrency.MainActor(unsafe) public class SecureTextFieldComponent : OitiDesignSystem.BaseFieldComponent, UIKit.UITextFieldDelegate {
+  public typealias ValueChangeHandler = (_ component: OitiDesignSystem.SecureTextFieldComponent, _ value: Swift.String) -> Swift.Void
+  public typealias LostFocusHandler = (_ component: OitiDesignSystem.SecureTextFieldComponent, _ value: Swift.String) -> Swift.Void
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var isFocused: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) public init(model: OitiDesignSystem.TextFieldComponentModel, iconVisibilityOn: UIKit.UIImage?, iconVisibilityOff: UIKit.UIImage?)
+  @_Concurrency.MainActor(unsafe) override public func disable()
+  @_Concurrency.MainActor(unsafe) override public func enable()
+  @_Concurrency.MainActor(unsafe) override public func canShowWarning() -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) public func onValueChange(handler: @escaping OitiDesignSystem.SecureTextFieldComponent.ValueChangeHandler)
+  @_Concurrency.MainActor(unsafe) public func onLostFocus(handler: @escaping OitiDesignSystem.SecureTextFieldComponent.LostFocusHandler)
+  @_Concurrency.MainActor(unsafe) @objc public func textFieldShouldReturn(_ textField: UIKit.UITextField) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc public func textFieldDidBeginEditing(_ textField: UIKit.UITextField)
+  @_Concurrency.MainActor(unsafe) @objc public func textFieldDidEndEditing(_ textField: UIKit.UITextField)
+  @_Concurrency.MainActor(unsafe) @objc public func textFieldDidChangeSelection(_ textField: UIKit.UITextField)
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class TextAreaComponent : UIKit.UIView, UIKit.UITextViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var isFocused: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) public var textAreaValue: Swift.String {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var observeValueChanges: (Swift.String, Swift.String) -> Swift.Void
+  @_Concurrency.MainActor(unsafe) public init(model: OitiDesignSystem.TextFieldComponentModel)
+  @_Concurrency.MainActor(unsafe) public func disable()
+  @_Concurrency.MainActor(unsafe) public func enable()
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func showWarning(withText text: Swift.String) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) public func showOffWarning()
+  @_Concurrency.MainActor(unsafe) @objc public func textViewDidBeginEditing(_ textView: UIKit.UITextView)
+  @_Concurrency.MainActor(unsafe) @objc public func textViewDidEndEditing(_ textView: UIKit.UITextView)
+  @objc deinit
+}
+public struct DSButton : SwiftUI.View {
+  public init(builder: OitiDesignSystem.DSButtonBuilder)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s16OitiDesignSystem8DSButtonV4bodyQrvp", 0) __
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class SquareButtonComponent : OitiDesignSystem.ButtonComponent {
+  @_Concurrency.MainActor(unsafe) public func layoutForSuperview(_ superview: UIKit.UIView, with layoutContraintModel: any OitiDesignSystem.ButtonLayoutContraintsModel)
+  @_Concurrency.MainActor(unsafe) override public init(model: OitiDesignSystem.ButtonComponentModel, identifier: Swift.String? = nil)
+  @objc deinit
+}
+public struct LinkComponentModel {
+  public init(text: Swift.String, icon: OitiDesignSystem.ComponentIcon, size: OitiDesignSystem.ComponentSize, normalStyle: OitiDesignSystem.LinkComponentStyles, highlightedStyle: OitiDesignSystem.LinkComponentStyles)
+}
+extension OitiDesignSystem.DesignTokens {
+  public enum Spacing {
+    public static let quarck: CoreFoundation.CGFloat
+    public static let nano: CoreFoundation.CGFloat
+    public static let xxxs: CoreFoundation.CGFloat
+    public static let xxs: CoreFoundation.CGFloat
+    public static let xs: CoreFoundation.CGFloat
+    public static let sm: CoreFoundation.CGFloat
+    public static let md: CoreFoundation.CGFloat
+    public static let lg: CoreFoundation.CGFloat
+    public static let xl: CoreFoundation.CGFloat
+    public static let xxl: CoreFoundation.CGFloat
+    public static let xxxl: CoreFoundation.CGFloat
+    public static let huge: CoreFoundation.CGFloat
+    public static let giant: CoreFoundation.CGFloat
+  }
+}
+public struct BaseFieldModel {
+  public var label: Swift.String
+  public var size: OitiDesignSystem.TextFieldComponentSize
+  public var icon: OitiDesignSystem.ComponentIcon
+}
+@objc @_Concurrency.MainActor(unsafe) public class CustomShape : UIKit.UIView {
+  public typealias ShapeBuilder = (_ shape: UIKit.UIView, _ rect: CoreFoundation.CGRect) -> Swift.Void
+  @_Concurrency.MainActor(unsafe) public var path: UIKit.UIBezierPath?
+  @_Concurrency.MainActor(unsafe) public init(shapeBuilder: @escaping OitiDesignSystem.CustomShape.ShapeBuilder)
+  @available(*, unavailable)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func draw(_ rect: CoreFoundation.CGRect)
+  @objc deinit
+}
+extension CoreFoundation.CGFloat {
+  public static func widthValue(_ value: CoreFoundation.CGFloat, from frame: CoreFoundation.CGRect? = nil) -> CoreFoundation.CGFloat
+  public static func heightValue(_ value: CoreFoundation.CGFloat, from frame: CoreFoundation.CGRect? = nil) -> CoreFoundation.CGFloat
+  public static func widthMultiplier(to value: CoreFoundation.CGFloat, from frame: CoreFoundation.CGRect? = nil) -> CoreFoundation.CGFloat
+  public static func heightMultiplier(to value: CoreFoundation.CGFloat, from frame: CoreFoundation.CGRect? = nil) -> CoreFoundation.CGFloat
+}
+@objc @_Concurrency.MainActor(unsafe) public class SelectComponent : OitiDesignSystem.BaseFieldComponent {
+  @_Concurrency.MainActor(unsafe) public init(model: OitiDesignSystem.BaseFieldModel, downIcon: UIKit.UIImage?)
+  @objc deinit
+}
+@objc @_Concurrency.MainActor(unsafe) final public class UILoadingView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public init(configuration: any OitiDesignSystem.LoadingConfigurationProtocol)
+  @available(*, unavailable)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension OitiDesignSystem.DesignTokens {
+  public enum BorderWidth {
+    public static let none: CoreFoundation.CGFloat
+    public static let hairline: CoreFoundation.CGFloat
+    public static let thin: CoreFoundation.CGFloat
+    public static let thick: CoreFoundation.CGFloat
+    public static let heavy: CoreFoundation.CGFloat
+  }
+}
+extension Swift.Optional where Wrapped == any OitiDesignSystem.LoadingConfigurationProtocol {
+  public func orDefault() -> any OitiDesignSystem.LoadingConfigurationProtocol
+}
+extension OitiDesignSystem.ConstraintBuilder {
+  public func top(anchor uiViewAnchor: UIKit.NSLayoutYAxisAnchor, padding: CoreFoundation.CGFloat = 0.0) -> OitiDesignSystem.ConstraintBuilder
+  public func top(anchor uiView: UIKit.UIView, padding: CoreFoundation.CGFloat = 0.0) -> OitiDesignSystem.ConstraintBuilder
+  public func top(anchor layoutGuide: UIKit.UILayoutGuide, padding: CoreFoundation.CGFloat = 0.0) -> OitiDesignSystem.ConstraintBuilder
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class CheckboxComponent : UIKit.UIView {
+  public typealias OnChangeValueHandler = (Swift.Bool) -> Swift.Void
+  @_Concurrency.MainActor(unsafe) public init(label: Swift.String, checkIcon: UIKit.UIImage?)
+  @_Concurrency.MainActor(unsafe) public func setSelected(_ value: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func setDisabled(_ value: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func onChangeValue(handler: @escaping OitiDesignSystem.CheckboxComponent.OnChangeValueHandler)
+  @objc deinit
+}
+public enum Visibility : Swift.Int, Swift.CaseIterable {
+  case displayed
+  case hidden
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [OitiDesignSystem.Visibility]
+  public typealias RawValue = Swift.Int
+  public static var allCases: [OitiDesignSystem.Visibility] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension OitiDesignSystem.DesignTokens {
+  public enum Color {
+    public enum Brand {
+      public enum Primary {
+        public static let pure: UIKit.UIColor
+        public static let light: UIKit.UIColor
+        public static let medium: UIKit.UIColor
+        public static let dark: UIKit.UIColor
+      }
+      public enum Secondary {
+        public static let pure: UIKit.UIColor
+        public static let light: UIKit.UIColor
+        public static let medium: UIKit.UIColor
+        public static let dark: UIKit.UIColor
+      }
+      public enum Tertiary {
+        public static let pure: UIKit.UIColor
+        public static let light: UIKit.UIColor
+        public static let medium: UIKit.UIColor
+        public static let dark: UIKit.UIColor
+      }
+    }
+    public enum Highlight {
+      public static let pure: UIKit.UIColor
+      public static let light: UIKit.UIColor
+      public static let medium: UIKit.UIColor
+      public static let dark: UIKit.UIColor
+    }
+    public enum Neutral {
+      public enum Low {
+        public static let pure: UIKit.UIColor
+        public static let light: UIKit.UIColor
+        public static let medium: UIKit.UIColor
+        public static let dark: UIKit.UIColor
+      }
+      public enum High {
+        public static let pure: UIKit.UIColor
+        public static let light: UIKit.UIColor
+        public static let medium: UIKit.UIColor
+        public static let dark: UIKit.UIColor
+      }
+    }
+    public enum Feedback {
+      public enum Warning {
+        public static let pure: UIKit.UIColor
+        public static let light: UIKit.UIColor
+        public static let medium: UIKit.UIColor
+        public static let dark: UIKit.UIColor
+      }
+      public enum Helper {
+        public static let pure: UIKit.UIColor
+        public static let light: UIKit.UIColor
+        public static let medium: UIKit.UIColor
+        public static let dark: UIKit.UIColor
+      }
+      public enum Success {
+        public static let pure: UIKit.UIColor
+        public static let light: UIKit.UIColor
+        public static let medium: UIKit.UIColor
+        public static let dark: UIKit.UIColor
+      }
+    }
+  }
+}
+extension UIKit.UIColor {
+  public var color: SwiftUI.Color {
+    get
+  }
+}
+extension UIKit.UIFont {
+  public var font: SwiftUI.Font {
+    get
+  }
+}
+public struct BlankView : SwiftUI.View {
+  public init(backgroundColor: SwiftUI.Color, onAppearAction: @escaping () -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s16OitiDesignSystem9BlankViewV4bodyQrvp", 0) __
+}
+public enum CharacterType : Swift.CaseIterable {
+  case letter
+  case whitespace
+  case number
+  case symbol
+  case punctuation
+  case emailSymbol
+  case dotSymbol
+  public static func == (a: OitiDesignSystem.CharacterType, b: OitiDesignSystem.CharacterType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public typealias AllCases = [OitiDesignSystem.CharacterType]
+  public static var allCases: [OitiDesignSystem.CharacterType] {
+    get
+  }
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+final public class Coordinator<Router> : Combine.ObservableObject where Router : OitiDesignSystem.NavigationRouter {
+  public init(navigationController: UIKit.UINavigationController = .init())
+  @_Concurrency.MainActor final public func start(at startingRoute: Router) -> UIKit.UIViewController
+  final public func show(_ route: Router, animated: Swift.Bool = true)
+  final public func pop(animated: Swift.Bool = true)
+  final public func pop(by index: Swift.Int, animated: Swift.Bool = true)
+  final public func popToRoot(animated: Swift.Bool = true)
+  final public func showController(_ viewController: UIKit.UIViewController, transition: OitiDesignSystem.TransitionStyle = .navigation, animated: Swift.Bool = true, completion: (() -> Swift.Void)? = nil)
+  final public func dismissController(_ viewController: UIKit.UIViewController, transition: OitiDesignSystem.TransitionStyle = .navigation, animated: Swift.Bool = true, completion: (() -> Swift.Void)? = nil)
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
+}
+extension OitiDesignSystem.DesignTokens.Font {
+  public enum Size {
+    case xxs
+    case xs
+    case sm
+    case md
+    case lg
+    case hxs
+    case hsm
+    case hmd
+    case hlg
+    case hxl
+    case display
+    case giant
+    public static func == (a: OitiDesignSystem.DesignTokens.Font.Size, b: OitiDesignSystem.DesignTokens.Font.Size) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+}
+public struct LoadingProperties {
+  public init()
+}
+@_hasMissingDesignatedInitializers public class FontUtil {
+  public static func registerFonts()
+  @objc deinit
+}
+public struct TextFieldComponentModel {
+  public init(label: Swift.String, placeholder: Swift.String, icon: OitiDesignSystem.ComponentIcon, size: OitiDesignSystem.TextFieldComponentSize, masks: [Swift.String] = [], acceptedCharacters: [OitiDesignSystem.CharacterType] = [], keyboardType: UIKit.UIKeyboardType = .default, autocapitalizationType: UIKit.UITextAutocapitalizationType = .sentences, identifier: Swift.String? = nil, textViewIdentifier: Swift.String? = nil, helperIdentifier: Swift.String? = nil)
+}
+extension OitiDesignSystem.DesignTokens {
+  public struct Shadow {
+    public static let level1: OitiDesignSystem.DesignTokens.Shadow
+    public static let level2: OitiDesignSystem.DesignTokens.Shadow
+    public static let level3: OitiDesignSystem.DesignTokens.Shadow
+    public static let level4: OitiDesignSystem.DesignTokens.Shadow
+  }
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class TextFieldComponent : UIKit.UIView, UIKit.UITextFieldDelegate {
+  public typealias ObserveValueChangesHandler = (_ value: Swift.String, _ rawValue: Swift.String) -> Swift.Void
+  public typealias LostFocusHandler = (_ component: OitiDesignSystem.TextFieldComponent, _ value: Swift.String, _ rawValue: Swift.String) -> Swift.Void
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var isFocused: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) public var textFieldValue: Swift.String {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var textFieldRawValue: Swift.String {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public init(model: OitiDesignSystem.TextFieldComponentModel)
+  @_Concurrency.MainActor(unsafe) public func disable()
+  @_Concurrency.MainActor(unsafe) public func enable()
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func showWarning(withText text: Swift.String) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) public func showOffWarning()
+  @_Concurrency.MainActor(unsafe) public func addObserveValueChangesAction(handler: @escaping OitiDesignSystem.TextFieldComponent.ObserveValueChangesHandler)
+  @_Concurrency.MainActor(unsafe) public func addOnLostFocusAction(handler: @escaping OitiDesignSystem.TextFieldComponent.LostFocusHandler)
+  @_Concurrency.MainActor(unsafe) public func setText(_ text: Swift.String)
+  @_Concurrency.MainActor(unsafe) @objc public func textFieldShouldReturn(_ textField: UIKit.UITextField) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc public func textFieldDidBeginEditing(_ textField: UIKit.UITextField)
+  @_Concurrency.MainActor(unsafe) @objc public func textFieldDidEndEditing(_ textField: UIKit.UITextField)
+  @_Concurrency.MainActor(unsafe) @objc public func textFieldDidChangeSelection(_ textField: UIKit.UITextField)
+  @objc deinit
+}
+extension OitiDesignSystem.DesignTokens {
+  @_hasMissingDesignatedInitializers public class Font {
+    public enum Highlight {
+      public static func regular(size: OitiDesignSystem.DesignTokens.Font.Size) -> UIKit.UIFont
+      public static func medium(size: OitiDesignSystem.DesignTokens.Font.Size) -> UIKit.UIFont
+      public static func bold(size: OitiDesignSystem.DesignTokens.Font.Size) -> UIKit.UIFont
+    }
+    public enum Base {
+      public static func regular(size: OitiDesignSystem.DesignTokens.Font.Size) -> UIKit.UIFont
+      public static func medium(size: OitiDesignSystem.DesignTokens.Font.Size) -> UIKit.UIFont
+      public static func bold(size: OitiDesignSystem.DesignTokens.Font.Size) -> UIKit.UIFont
+    }
+    @objc deinit
+  }
+}
+extension OitiDesignSystem.ConstraintBuilder {
+  public func centerY(anchor uiViewAnchor: UIKit.NSLayoutYAxisAnchor, padding: CoreFoundation.CGFloat = 0.0) -> OitiDesignSystem.ConstraintBuilder
+  public func centerY(anchor uiViewAnchor: UIKit.UIView, padding: CoreFoundation.CGFloat = 0.0) -> OitiDesignSystem.ConstraintBuilder
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class BaseFieldComponent : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public init(model: OitiDesignSystem.BaseFieldModel)
+  @_Concurrency.MainActor(unsafe) public func disable()
+  @_Concurrency.MainActor(unsafe) public func enable()
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func showWarning(withText text: Swift.String) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) public func showOffWarning()
+  @_Concurrency.MainActor(unsafe) public func canShowWarning() -> Swift.Bool
+  @objc deinit
+}
+public protocol LoadingConfigurationProtocol {
+  var backgroundColor: UIKit.UIColor { get }
+  func createLoadingView() -> UIKit.UIView
+}
+extension OitiDesignSystem.ComponentBuilder {
+  public struct Label {
+    public static func create(for text: Swift.String) -> OitiDesignSystem.ComponentBuilder.Label
+    public static func create() -> OitiDesignSystem.ComponentBuilder.Label
+    public static func create(withAttributedString attrString: Foundation.NSAttributedString) -> OitiDesignSystem.ComponentBuilder.Label
+    public func build() -> UIKit.UILabel
+    public func numberOfLines(_ number: Swift.Int) -> OitiDesignSystem.ComponentBuilder.Label
+    public func textAligment(_ aligment: UIKit.NSTextAlignment) -> OitiDesignSystem.ComponentBuilder.Label
+    public func font(_ font: UIKit.UIFont) -> OitiDesignSystem.ComponentBuilder.Label
+    public func textColor(_ color: UIKit.UIColor) -> OitiDesignSystem.ComponentBuilder.Label
+    public func identifier(_ identifier: Swift.String) -> OitiDesignSystem.ComponentBuilder.Label
+  }
+}
+public enum TextFieldComponentSize {
+  case normal
+  case large
+  public static func == (a: OitiDesignSystem.TextFieldComponentSize, b: OitiDesignSystem.TextFieldComponentSize) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum ButtonComponentStyles {
+  case clear
+  case custom(OitiDesignSystem.ButtonComponentAppearance)
+  case standardPrimaryHightlithed
+  case standardPrimaryNormal
+  case standardPrimaryDisabled
+  case standardSecondaryHightlithed
+  case standardSecondaryNormal
+  case standardSecondaryDisabled
+  case standardGhostHightlithed
+  case standardGhostHover
+  case standardGhostNormal
+  case standardGhostDisabled
+  case onColorPrimaryHightlithed
+  case onColorPrimaryNormal
+  case onColorPrimaryDisabled
+  case onColorSecondaryHightlithed
+  case onColorSecondaryNormal
+  case onColorSecondaryDisabled
+  case onColorGhostHightlithed
+  case onColorGhostNormal
+  case onColorGhostDisabled
+  public var appearance: OitiDesignSystem.ButtonComponentAppearance {
+    get
+  }
+}
+@objc @_Concurrency.MainActor(unsafe) open class InstructionsView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) final public let backSquareButton: OitiDesignSystem.SquareButtonComponent
+  @_Concurrency.MainActor(unsafe) public init(model: OitiDesignSystem.InstructionsModel)
+  @available(*, unavailable)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) open func setupExtraViews() -> UIKit.UIView
+  @_Concurrency.MainActor(unsafe) open func setupConstraintsOfExtraViews()
+  @objc deinit
+}
+public enum ComponentSize {
+  case ultraLarge
+  case large
+  case medium
+  case small
+  public static func == (a: OitiDesignSystem.ComponentSize, b: OitiDesignSystem.ComponentSize) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public protocol ButtonLayoutContraintsModel {
+  var heightValue: CoreFoundation.CGFloat { get }
+  var iconHeight: CoreFoundation.CGFloat { get }
+  func layout(_ view: UIKit.UIView, superview: UIKit.UIView, spacing: CoreFoundation.CGFloat)
+  func layoutSquare(_ view: UIKit.UIView)
+  func layoutFont(titleLabel: UIKit.UILabel)
+  func layoutIcon(iconImage: UIKit.UIImageView, uiView: UIKit.UIView)
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class LinkComponent : UIKit.UIButton {
+  @_Concurrency.MainActor(unsafe) public init(model: OitiDesignSystem.LinkComponentModel)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
+  @objc deinit
+}
+extension OitiDesignSystem.ConstraintBuilder {
+  public func leading(anchor uiViewAnchor: UIKit.NSLayoutXAxisAnchor, padding: CoreFoundation.CGFloat = 0.0) -> OitiDesignSystem.ConstraintBuilder
+  public func leading(anchor uiViewAnchor: UIKit.UIView, padding: CoreFoundation.CGFloat = 0.0) -> OitiDesignSystem.ConstraintBuilder
+  public func leading(anchor layoutGuide: UIKit.UILayoutGuide, padding: CoreFoundation.CGFloat = 0.0) -> OitiDesignSystem.ConstraintBuilder
+}
+extension UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public func makeConstraints() -> OitiDesignSystem.ConstraintBuilder
+}
+@_hasMissingDesignatedInitializers final public class LoadingCustomizationBuilder {
+  public static func builder() -> OitiDesignSystem.LoadingCustomizationBuilder
+  final public func build() -> OitiDesignSystem.LoadingProperties
+  @discardableResult
+  final public func setBackgroundColor(_ color: UIKit.UIColor) -> Self
+  @discardableResult
+  final public func setLoading(withColor color: UIKit.UIColor?, width spinnerWidth: CoreFoundation.CGFloat? = nil, scaleFactor spinnerScaleFactor: Swift.Int? = nil) -> Self
+  @objc deinit
+}
+public struct LoadingView : SwiftUI.UIViewRepresentable {
+  public init(configuration: any OitiDesignSystem.LoadingConfigurationProtocol)
+  @_Concurrency.MainActor(unsafe) public func makeUIView(context: OitiDesignSystem.LoadingView.Context) -> OitiDesignSystem.UILoadingView
+  @_Concurrency.MainActor(unsafe) public func updateUIView(_ uiView: OitiDesignSystem.UILoadingView, context: OitiDesignSystem.LoadingView.Context)
+  public typealias Body = Swift.Never
+  public typealias Coordinator = Swift.Void
+  public typealias UIViewType = OitiDesignSystem.UILoadingView
+}
+extension UIKit.UIImage {
+  public func resizeImage(targetSize: CoreFoundation.CGSize) -> UIKit.UIImage?
+  public func toBase64(withSizeInMb expectedSizeInMb: Swift.Float) -> Swift.String?
+}
+public enum DSButtonContentType {
+  case text(Swift.String)
+  case icon(UIKit.UIImage)
+  case textIcon(Swift.String, UIKit.UIImage)
+}
+final public class DSButtonBuilder {
+  public init(contentType: OitiDesignSystem.DSButtonContentType, textFont: SwiftUI.Font? = nil, size: OitiDesignSystem.ComponentSize, style: OitiDesignSystem.ButtonComponentStyles, action: @escaping () -> Swift.Void)
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class SearchFieldComponent : UIKit.UIView, UIKit.UITextFieldDelegate {
+  public typealias SearchHandler = (_ component: OitiDesignSystem.SearchFieldComponent, _ searchText: Swift.String) -> Swift.Void
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var isFocused: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) public init(model: OitiDesignSystem.SearchFieldComponentModel)
+  @_Concurrency.MainActor(unsafe) public func onSearchSubmit(handler: @escaping OitiDesignSystem.SearchFieldComponent.SearchHandler)
+  @_Concurrency.MainActor(unsafe) public func onValueChange(handler: @escaping OitiDesignSystem.SearchFieldComponent.SearchHandler)
+  @_Concurrency.MainActor(unsafe) public func onSearchReturn(handler: @escaping OitiDesignSystem.SearchFieldComponent.SearchHandler)
+  @_Concurrency.MainActor(unsafe) public func setEnabled(_ enabledValue: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc public func textFieldShouldReturn(_ textField: UIKit.UITextField) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc public func textFieldDidBeginEditing(_ textField: UIKit.UITextField)
+  @_Concurrency.MainActor(unsafe) @objc public func textFieldDidEndEditing(_ textField: UIKit.UITextField)
+  @_Concurrency.MainActor(unsafe) @objc public func textFieldDidChangeSelection(_ textField: UIKit.UITextField)
+  @objc deinit
+}
+extension OitiDesignSystem.DesignTokens {
+  public enum SpacingInset {
+    public static let quarck: CoreFoundation.CGFloat
+    public static let nano: CoreFoundation.CGFloat
+    public static let xs: CoreFoundation.CGFloat
+    public static let sm: CoreFoundation.CGFloat
+    public static let md: CoreFoundation.CGFloat
+    public static let lg: CoreFoundation.CGFloat
+  }
+}
+public enum ComponentBuilder {
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class OitiHeaderComponent : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public var optionsAction: () -> Swift.Void
+  @_Concurrency.MainActor(unsafe) final public let optionsButtonIdentifier: Swift.String
+  @_Concurrency.MainActor(unsafe) public init(model: OitiDesignSystem.OitiHeaderComponentModel)
+  @objc deinit
+}
+extension UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public func createImageFromView() -> UIKit.UIImage
+}
+extension OitiDesignSystem.ConstraintBuilder {
+  public func width(anchor uiViewAnchor: UIKit.NSLayoutDimension, multiplier: CoreFoundation.CGFloat = 1.0) -> OitiDesignSystem.ConstraintBuilder
+  public func width(anchor uiViewAnchor: UIKit.UIView, multiplier: CoreFoundation.CGFloat = 1.0) -> OitiDesignSystem.ConstraintBuilder
+  public func width(constant: CoreFoundation.CGFloat) -> OitiDesignSystem.ConstraintBuilder
+}
+public protocol LinkLayoutContraintsModel {
+  var fontSize: OitiDesignSystem.DesignTokens.Font.Size { get }
+  var iconMultiplier: CoreFoundation.CGFloat { get }
+  var componentHeight: CoreFoundation.CGFloat { get }
+  var verticalPadding: CoreFoundation.CGFloat { get }
+}
+public struct InstructionsModel {
+  public let mainImage: UIKit.UIImage?
+  public let title: Swift.String
+  public let caption: Swift.String
+  public init(mainImage: UIKit.UIImage?, title: Swift.String, caption: Swift.String)
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class ButtonComponent : UIKit.UIButton {
+  @_Concurrency.MainActor(unsafe) public var isLoading: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public init(model: OitiDesignSystem.ButtonComponentModel, identifier: Swift.String? = nil)
+  @_Concurrency.MainActor(unsafe) public func changeTitle(to newTitle: Swift.String)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
+  @objc deinit
+}
+extension OitiDesignSystem.ComponentBuilder {
+  public struct View {
+    public static func create(with frame: CoreFoundation.CGRect) -> OitiDesignSystem.ComponentBuilder.View
+    public static func create(with size: CoreFoundation.CGSize) -> OitiDesignSystem.ComponentBuilder.View
+    public static func create() -> OitiDesignSystem.ComponentBuilder.View
+    public func build() -> UIKit.UIView
+    public func backgroundColor(_ color: UIKit.UIColor) -> OitiDesignSystem.ComponentBuilder.View
+    public func backgroundColor(_ color: UIKit.UIColor, opacity: CoreFoundation.CGFloat = 1.0) -> OitiDesignSystem.ComponentBuilder.View
+    public func borderColor(_ color: UIKit.UIColor) -> OitiDesignSystem.ComponentBuilder.View
+    public func borderWidth(_ width: CoreFoundation.CGFloat) -> OitiDesignSystem.ComponentBuilder.View
+    public func cornerRadius(_ radius: CoreFoundation.CGFloat) -> OitiDesignSystem.ComponentBuilder.View
+    @available(iOS 11.0, *)
+    public func cornerRadius(_ radius: CoreFoundation.CGFloat, edges: QuartzCore.CACornerMask) -> OitiDesignSystem.ComponentBuilder.View
+    public func masksToBounds(_ value: Swift.Bool = true) -> OitiDesignSystem.ComponentBuilder.View
+    public func customContent(contentBuilder: @escaping (UIKit.UIView) -> Swift.Void) -> OitiDesignSystem.ComponentBuilder.View
+  }
+}
+extension OitiDesignSystem.ConstraintBuilder {
+  public func bottom(anchor uiViewAnchor: UIKit.NSLayoutYAxisAnchor, padding: CoreFoundation.CGFloat = 0.0) -> OitiDesignSystem.ConstraintBuilder
+  public func bottom(anchor uiViewAnchor: UIKit.UIView, padding: CoreFoundation.CGFloat = 0.0) -> OitiDesignSystem.ConstraintBuilder
+  public func bottom(anchor layoutGuide: UIKit.UILayoutGuide, padding: CoreFoundation.CGFloat = 0.0) -> OitiDesignSystem.ConstraintBuilder
+}
+public struct SpinnerConfiguration : OitiDesignSystem.LoadingConfigurationProtocol {
+  public let backgroundColor: UIKit.UIColor
+  public init(color: UIKit.UIColor, strokeWidth: CoreFoundation.CGFloat, scaleFactor: Swift.Int, backgroundColor: UIKit.UIColor)
+  public func createLoadingView() -> UIKit.UIView
+}
+@_hasMissingDesignatedInitializers final public class InstructionCustomizationBuilder {
+  public static func builder() -> OitiDesignSystem.InstructionCustomizationBuilder
+  final public func build() -> OitiDesignSystem.InstructionProperties
+  @discardableResult
+  final public func setBackButtonIcon(_ icon: UIKit.UIImage) -> Self
+  @discardableResult
+  final public func setBackButtonColor(forContent contentColor: UIKit.UIColor?, background backgroundColor: UIKit.UIColor? = nil, border borderColor: UIKit.UIColor? = nil) -> Self
+  @discardableResult
+  final public func setBackgroundColor(_ color: UIKit.UIColor) -> Self
+  @discardableResult
+  final public func setContextImage(_ image: UIKit.UIImage) -> Self
+  @discardableResult
+  final public func setBottomSheetColor(_ color: UIKit.UIColor) -> Self
+  @discardableResult
+  final public func setBottomSheetCornerRadius(_ radius: CoreFoundation.CGFloat) -> Self
+  @discardableResult
+  final public func setTitleText(_ text: Swift.String, color: UIKit.UIColor? = nil, font: UIKit.UIFont? = nil) -> Self
+  @discardableResult
+  final public func setCaptionText(_ text: Swift.String, color: UIKit.UIColor? = nil, font: UIKit.UIFont? = nil) -> Self
+  @discardableResult
+  final public func setFirstInstructionIcon(_ icon: UIKit.UIImage) -> Self
+  @discardableResult
+  final public func setFirstInstructionIconColor(forContent contentColor: UIKit.UIColor?, background backgroundColor: UIKit.UIColor? = nil, border borderColor: UIKit.UIColor? = nil) -> Self
+  @discardableResult
+  final public func setFirstInstructionTitleText(_ text: Swift.String, color: UIKit.UIColor? = nil, font: UIKit.UIFont? = nil) -> Self
+  @discardableResult
+  final public func setSecondInstructionIcon(_ icon: UIKit.UIImage) -> Self
+  @discardableResult
+  final public func setSecondInstructionIconColor(forContent contentColor: UIKit.UIColor?, background backgroundColor: UIKit.UIColor? = nil, border borderColor: UIKit.UIColor? = nil) -> Self
+  @discardableResult
+  final public func setSecondInstructionTitleText(_ text: Swift.String, color: UIKit.UIColor? = nil, font: UIKit.UIFont? = nil) -> Self
+  @discardableResult
+  final public func setContinueButtonText(_ text: Swift.String, font: UIKit.UIFont? = nil) -> Self
+  @discardableResult
+  final public func setContinueButtonColor(forContent contentColor: UIKit.UIColor?, background backgroundColor: UIKit.UIColor? = nil, border borderColor: UIKit.UIColor? = nil) -> Self
+  @objc deinit
+}
+public struct InstructionScreen : SwiftUI.View {
+  public init(properties: OitiDesignSystem.InstructionProperties, backButtonAction: @escaping () -> Swift.Void, continueButtonAction: @escaping () -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s16OitiDesignSystem17InstructionScreenV4bodyQrvp", 0) __
+}
+
+extension UIKit.UIImage {
+  public func cropToRect(rect: CoreFoundation.CGRect) -> UIKit.UIImage
+}
+extension OitiDesignSystem.LinkComponentStyles : Swift.Equatable {}
+extension OitiDesignSystem.LinkComponentStyles : Swift.Hashable {}
+extension OitiDesignSystem.TransitionStyle : Swift.Equatable {}
+extension OitiDesignSystem.TransitionStyle : Swift.Hashable {}
+extension OitiDesignSystem.ButtonComponentType : Swift.Equatable {}
+extension OitiDesignSystem.ButtonComponentType : Swift.Hashable {}
+extension OitiDesignSystem.Visibility : Swift.Equatable {}
+extension OitiDesignSystem.Visibility : Swift.Hashable {}
+extension OitiDesignSystem.Visibility : Swift.RawRepresentable {}
+extension OitiDesignSystem.CharacterType : Swift.Equatable {}
+extension OitiDesignSystem.CharacterType : Swift.Hashable {}
+extension OitiDesignSystem.DesignTokens.Font.Size : Swift.Equatable {}
+extension OitiDesignSystem.DesignTokens.Font.Size : Swift.Hashable {}
+extension OitiDesignSystem.TextFieldComponentSize : Swift.Equatable {}
+extension OitiDesignSystem.TextFieldComponentSize : Swift.Hashable {}
+extension OitiDesignSystem.ComponentSize : Swift.Equatable {}
+extension OitiDesignSystem.ComponentSize : Swift.Hashable {}

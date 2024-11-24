@@ -1,0 +1,111 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
+// swift-module-flags: -target arm64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name OitiLiveness2D
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import CommonCrypto
+import DeveloperToolsSupport
+import Foundation
+import OitiCommons
+import OitiDesignSystem
+import OitiDeviceIntelligence
+@_exported import OitiLiveness2D
+import OitiMultimedia
+import OitiRemote
+import Swift
+import SwiftUI
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_hasMissingDesignatedInitializers final public class Liveness2DCustomizationBuilder {
+  public static func builder() -> OitiLiveness2D.Liveness2DCustomizationBuilder
+  @discardableResult
+  final public func customizeInstructionScreen(_ builder: @escaping (_ instructionBuilder: OitiDesignSystem.InstructionCustomizationBuilder) -> OitiDesignSystem.InstructionCustomizationBuilder) -> Self
+  @discardableResult
+  final public func customizeCaptureScreen(_ builder: @escaping (_ captureBuilder: OitiLiveness2D.Liveness2DCaptureCustomizationBuilder) -> OitiLiveness2D.Liveness2DCaptureCustomizationBuilder) -> Self
+  @discardableResult
+  final public func customizeLoadingScreen(_ builder: @escaping (_ loadingBuilder: OitiDesignSystem.LoadingCustomizationBuilder) -> OitiDesignSystem.LoadingCustomizationBuilder) -> Self
+  @discardableResult
+  final public func customizeResultScreen(_ builder: @escaping (_ resultBuilder: OitiLiveness2D.Liveness2DResultCustomizationBuilder) -> OitiLiveness2D.Liveness2DResultCustomizationBuilder) -> Self
+  @discardableResult
+  final public func customizeCameraPermissionScreen(_ builder: @escaping (_ cameraPermissionBuilder: OitiMultimedia.CameraPermissionCustomizationBuilder) -> OitiMultimedia.CameraPermissionCustomizationBuilder) -> Self
+  @objc deinit
+}
+public struct Liveness2DSuccessModel {
+  public let ticket: Swift.String
+  public let valid: Swift.Bool
+  public let codeId: Swift.String
+  public let `protocol`: Swift.String
+  public let image: Swift.String
+}
+
+@_hasMissingDesignatedInitializers final public class Liveness2DCaptureCustomizationBuilder {
+  @discardableResult
+  final public func setBackButtonIcon(_ icon: UIKit.UIImage) -> Self
+  @discardableResult
+  final public func setBackButtonColor(forContent contentColor: UIKit.UIColor?, background backgroundColor: UIKit.UIColor? = nil, border borderColor: UIKit.UIColor? = nil) -> Self
+  @discardableResult
+  final public func setCloseButtonIcon(_ icon: UIKit.UIImage) -> Self
+  @discardableResult
+  final public func setCloseButtonColor(forContent contentColor: UIKit.UIColor?, background backgroundColor: UIKit.UIColor? = nil, border borderColor: UIKit.UIColor? = nil) -> Self
+  @discardableResult
+  final public func setInstruction(withText text: Swift.String?, color textColor: UIKit.UIColor? = nil, font textFont: UIKit.UIFont? = nil) -> Self
+  @discardableResult
+  final public func setInstructionBackgroundColor(_ uiColor: UIKit.UIColor) -> Self
+  @discardableResult
+  final public func setInstructionCornerRadius(_ radius: CoreFoundation.CGFloat) -> Self
+  @discardableResult
+  final public func setChallengeBackgroundColor(_ uiColor: UIKit.UIColor) -> Self
+  @discardableResult
+  final public func setChallengeCornerRadius(_ radius: CoreFoundation.CGFloat) -> Self
+  @discardableResult
+  final public func setBackgroundColor(_ color: UIKit.UIColor) -> Self
+  final public func setOval(withColor uiColor: UIKit.UIColor?, borderWidth: CoreFoundation.CGFloat? = nil) -> Self
+  final public func setOvalLoadingColors(forTop topLoadingColor: UIKit.UIColor?, bottom bottomLoadingColor: UIKit.UIColor? = nil) -> Self
+  @discardableResult
+  final public func setStartButtonText(_ text: Swift.String, font uiFont: UIKit.UIFont? = nil) -> Self
+  @discardableResult
+  final public func setStartButtonColor(forContent contentColor: UIKit.UIColor?, background backgroundColor: UIKit.UIColor? = nil, border borderColor: UIKit.UIColor? = nil) -> Self
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers final public class Liveness2DResultCustomizationBuilder {
+  @discardableResult
+  final public func setSuccessBackgroundColor(_ color: UIKit.UIColor) -> Self
+  @discardableResult
+  final public func setErrorBackgroundColor(_ color: UIKit.UIColor) -> Self
+  @discardableResult
+  final public func setSuccesImage(_ image: UIKit.UIImage) -> Self
+  @discardableResult
+  final public func setErrorImage(_ image: UIKit.UIImage) -> Self
+  @discardableResult
+  final public func setSuccessMessage(_ message: Swift.String, color: UIKit.UIColor? = nil, font: UIKit.UIFont? = nil) -> Self
+  @discardableResult
+  final public func setErrorMessage(_ message: Swift.String, color: UIKit.UIColor? = nil, font: UIKit.UIFont? = nil) -> Self
+  @objc deinit
+}
+public typealias Environment = OitiRemote.Environment
+public protocol Liveness2DCallback {
+  func onSuccess(_ result: OitiLiveness2D.Liveness2DSuccessModel)
+  func onError(_ error: OitiCommons.OitiError)
+  func onCancel()
+}
+@_hasMissingDesignatedInitializers final public class Liveness2DSolution : OitiCommons.OitiSolution {
+  final public var type: OitiCommons.ServiceType {
+    get
+  }
+  final public var vendor: OitiCommons.ServiceVendor {
+    get
+  }
+  final public let ticket: Swift.String
+  final public let key: Swift.String
+  final public var sessionTokenRequired: Swift.Bool {
+    get
+  }
+  convenience public init(ticket: Swift.String, key: Swift.String, tenant: OitiRemote.TenantParameters, environment: OitiLiveness2D.Environment, callback: any OitiLiveness2D.Liveness2DCallback, customizationBuilder: OitiLiveness2D.Liveness2DCustomizationBuilder? = nil)
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func configure(with service: OitiCommons.ServiceModel, token: Swift.String) async throws
+  #endif
+  @_Concurrency.MainActor final public func start(at navigationController: UIKit.UINavigationController)
+  @objc deinit
+}
+

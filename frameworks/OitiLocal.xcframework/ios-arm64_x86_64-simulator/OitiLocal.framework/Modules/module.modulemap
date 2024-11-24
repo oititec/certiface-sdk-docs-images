@@ -1,0 +1,11 @@
+framework module OitiLocal {
+  umbrella header "OitiLocal.h"
+  export *
+
+  module * { export * }
+}
+
+module OitiLocal.Swift {
+  header "OitiLocal-Swift.h"
+  requires objc
+}

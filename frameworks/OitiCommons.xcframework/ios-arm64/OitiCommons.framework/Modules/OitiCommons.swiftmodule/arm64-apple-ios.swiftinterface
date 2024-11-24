@@ -1,0 +1,171 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
+// swift-module-flags: -target arm64-apple-ios15.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name OitiCommons
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import AVFoundation
+import CallKit
+import CommonCrypto
+import CoreTelephony
+import Foundation
+@_exported import OitiCommons
+import Swift
+import SwiftUI
+import SystemConfiguration
+import UIKit.UIImagePickerController
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+extension OitiCommons.Cipher.AES {
+  public struct CBC {
+    public init(key: Swift.String, iv: Swift.String, value: Swift.String)
+    public func encrypt() throws -> Swift.String
+    public func decrypt() throws -> Foundation.Data
+  }
+}
+extension Swift.Dictionary {
+  public func stringFromHttpParameters() -> Swift.String
+}
+public enum CipherError : Swift.Error {
+  case encryptionFail
+  case decryptionFail
+  public static func == (a: OitiCommons.CipherError, b: OitiCommons.CipherError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum Cipher {
+  public enum AES {
+  }
+}
+public struct CredentialsModel {
+  public struct FacetecModel {
+    public let globalKey: Swift.String
+    public let productionKey: Swift.String
+    public let publicKey: Swift.String
+    public init(globalKey: Swift.String, productionKey: Swift.String, publicKey: Swift.String)
+  }
+  public let ticket: Swift.String
+  public let key: Swift.String
+  public let sentryDsn: Swift.String
+  public let facetec: OitiCommons.CredentialsModel.FacetecModel
+  public init(ticket: Swift.String, key: Swift.String, sentryDsn: Swift.String, facetec: OitiCommons.CredentialsModel.FacetecModel)
+}
+extension Swift.String {
+  public func addingPercentEncodingForURLQueryValue() -> Swift.String?
+  public func base64Encoded() -> Swift.String?
+  public func base64Decoded() -> Swift.String?
+  public func encodeURIComponent() -> Swift.String?
+}
+public struct Constants {
+  public static var FaceCaptchaImageHeight: Swift.Int
+  public static var FaceCaptchaImageWidth: Swift.Int
+  public static var FaceCaptchaImageQuality: Swift.Double
+  public static var DocLandscapeImageHeight: Swift.Int
+  public static var DocLandscapeImageWidth: Swift.Int
+  public static var DocPortraitImageHeight: Swift.Int
+  public static var DocPortraitImageWidth: Swift.Int
+  public static var DocImageQuality: Swift.Double
+}
+public enum HardwareStatusManager {
+  #if compiler(>=5.3) && $AsyncAwait
+  public static func checkCameraPermission() async -> Swift.Bool
+  #endif
+  public static func isConnectedToNetwork() -> Swift.Bool
+  public static func isOnPhoneCall() -> Swift.Bool
+}
+public protocol CryptoHelperProtocol : AnyObject {
+  func decode<T>(_ value: Swift.String, to type: T.Type, usingKey key: Swift.String) throws -> T where T : Swift.Decodable
+  func encode(_ value: Swift.String, usingKey key: Swift.String) throws -> Swift.String
+}
+@_hasMissingDesignatedInitializers final public class CryptoHelper : OitiCommons.CryptoHelperProtocol {
+  convenience public init()
+  final public func decode<T>(_ value: Swift.String, to type: T.Type, usingKey key: Swift.String) throws -> T where T : Swift.Decodable
+  final public func encode(_ value: Swift.String, usingKey key: Swift.String) throws -> Swift.String
+  @objc deinit
+}
+public enum ServiceType : Swift.String {
+  case bureau
+  case liveness
+  case document
+  case unknown
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum ServiceVendor : Swift.String {
+  case facetec
+  case oiti
+  case unknown
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct ServiceModel {
+  public let service: OitiCommons.ServiceType
+  public var vendor: OitiCommons.ServiceVendor
+  public var type: Swift.String?
+  public var url: Swift.String?
+  public let action: Swift.String
+}
+public struct ServiceDTOModel : Swift.Codable {
+  public let service: Swift.String
+  public var vendor: Swift.String?
+  public var type: Swift.String?
+  public var url: Swift.String?
+  public let action: Swift.String
+  public func toModel() -> OitiCommons.ServiceModel
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum OitiError : Swift.Int, Swift.Error {
+  case unknown
+  case invalidTicket
+  case finishedTicket
+  case awaitingTicket
+  case invalidKey
+  case noCameraPermission
+  case noInternetConnection
+  case solutionNotCompleted
+  case emptyFlow
+  case flowError
+  case invalidParameters
+  case duplicatedProvider
+  public var code: Swift.Int {
+    get
+  }
+  public var message: Swift.String {
+    get
+  }
+  public static func convert(from error: any Swift.Error) -> OitiCommons.OitiError
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public protocol OitiSolution : AnyObject {
+  var type: OitiCommons.ServiceType { get }
+  var vendor: OitiCommons.ServiceVendor { get }
+  var sessionTokenRequired: Swift.Bool { get }
+  #if compiler(>=5.3) && $AsyncAwait
+  func configure(with service: OitiCommons.ServiceModel, token: Swift.String) async throws
+  #endif
+  func start(at navigationController: UIKit.UINavigationController)
+}
+extension OitiCommons.CipherError : Swift.Equatable {}
+extension OitiCommons.CipherError : Swift.Hashable {}
+extension OitiCommons.ServiceType : Swift.Equatable {}
+extension OitiCommons.ServiceType : Swift.Hashable {}
+extension OitiCommons.ServiceType : Swift.RawRepresentable {}
+extension OitiCommons.ServiceVendor : Swift.Equatable {}
+extension OitiCommons.ServiceVendor : Swift.Hashable {}
+extension OitiCommons.ServiceVendor : Swift.RawRepresentable {}
+extension OitiCommons.OitiError : Swift.Equatable {}
+extension OitiCommons.OitiError : Swift.Hashable {}
+extension OitiCommons.OitiError : Swift.RawRepresentable {}
